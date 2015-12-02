@@ -148,3 +148,6 @@ def get(key):
         Name error will be caught when the SCOOP library is not imported properly.
         """
         logging.debug('SCOOP not loaded. Not retrieving the shared object with key {}'.format(key))
+
+def map_(*args, **kwargs):
+    return map(*args, **kwargs)
