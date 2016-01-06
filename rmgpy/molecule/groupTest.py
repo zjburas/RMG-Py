@@ -519,6 +519,35 @@ class TestGroup(unittest.TestCase):
         self.assertTrue(self.group.isIsomorphic(group))
         self.assertTrue(group.isIsomorphic(self.group))
         
+    def test_Nitrogen_group(self):
+        """
+
+        """
+
+        from rmgpy.molecule.molecule import Molecule
+
+        forbidden_group = Group().fromAdjacencyList(
+            """
+1 N u0 p1 {2,S} {3,S}
+2 R ux {1,S}
+3 R ux {1,S}
+            """)
+
+        mol = Molecule().fromAdjacencyList(
+            """
+multiplicity 2
+1 N u0 p1 c0 {2,S} {5,S} {6,S}
+2 C u1 p0 c0 {1,S} {3,S} {4,S}
+3 H u0 p0 c0 {2,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {1,S}
+            """)
+
+        isomorphic = mol.isSubgraphIsomorphic(forbidden_group)
+
+        self.assertFalse(isomorphic)
+
 ################################################################################
 
 if __name__ == '__main__':
