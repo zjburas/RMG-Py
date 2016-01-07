@@ -927,6 +927,7 @@ class TestReaction(unittest.TestCase):
         self.assertEqual(self.reaction.duplicate, reaction.duplicate)
         self.assertEqual(self.reaction.degeneracy, reaction.degeneracy)   
     
+    @work_in_progress
     def testGeneratePairs(self):
         """
         This test is to ensure that generatePairs() assigns pairs won't 
