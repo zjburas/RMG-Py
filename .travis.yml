@@ -23,7 +23,7 @@ before_install:
   - conda update --yes conda
   - openssl aes-256-cbc -K $encrypted_244ac3091cff_key -iv $encrypted_244ac3091cff_iv -in deploy_key.enc -out deploy_key -d
   - cd ..
-  - git clone https://github.com/ReactionMechanismGenerator/RMG-database.git
+  - git clone -b 1.0.2 --single-branch https://github.com/ReactionMechanismGenerator/RMG-database.git
   - cd RMG-Py
 
 install:
